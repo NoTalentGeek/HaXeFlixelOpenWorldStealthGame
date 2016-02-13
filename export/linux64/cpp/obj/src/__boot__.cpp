@@ -330,9 +330,6 @@
 #ifndef INCLUDED_flixel_ui__FlxTypedButton_GraphicButton
 #include <flixel/ui/_FlxTypedButton/GraphicButton.h>
 #endif
-#ifndef INCLUDED_flixel_ui_FlxButton
-#include <flixel/ui/FlxButton.h>
-#endif
 #ifndef INCLUDED_flixel_ui_FlxBar
 #include <flixel/ui/FlxBar.h>
 #endif
@@ -492,14 +489,8 @@
 #ifndef INCLUDED_openfl__legacy_display_BitmapData
 #include <openfl/_legacy/display/BitmapData.h>
 #endif
-#ifndef INCLUDED_flixel_FlxObject
-#include <flixel/FlxObject.h>
-#endif
 #ifndef INCLUDED_flixel_FlxG
 #include <flixel/FlxG.h>
-#endif
-#ifndef INCLUDED_flixel_util_FlxRect
-#include <flixel/util/FlxRect.h>
 #endif
 #ifndef INCLUDED_flixel_util_FlxSave
 #include <flixel/util/FlxSave.h>
@@ -524,6 +515,15 @@
 #endif
 #ifndef INCLUDED_Xml
 #include <Xml.h>
+#endif
+#ifndef INCLUDED_flixel_ui_FlxButton
+#include <flixel/ui/FlxButton.h>
+#endif
+#ifndef INCLUDED_flixel_FlxObject
+#include <flixel/FlxObject.h>
+#endif
+#ifndef INCLUDED_flixel_util_FlxRect
+#include <flixel/util/FlxRect.h>
 #endif
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
@@ -843,9 +843,6 @@
 #ifndef INCLUDED_flixel_ui__FlxTypedButton_FlxButtonEvent
 #include <flixel/ui/_FlxTypedButton/FlxButtonEvent.h>
 #endif
-#ifndef INCLUDED_flixel_ui_FlxTypedButton
-#include <flixel/ui/FlxTypedButton.h>
-#endif
 #ifndef INCLUDED_flixel_tweens_motion_QuadPath
 #include <flixel/tweens/motion/QuadPath.h>
 #endif
@@ -1014,9 +1011,6 @@
 #ifndef INCLUDED_flixel_FlxSubState
 #include <flixel/FlxSubState.h>
 #endif
-#ifndef INCLUDED_flixel_FlxSprite
-#include <flixel/FlxSprite.h>
-#endif
 #ifndef INCLUDED_flixel_FlxGame
 #include <flixel/FlxGame.h>
 #endif
@@ -1080,12 +1074,6 @@
 #ifndef INCLUDED_flixel_system_scaleModes_RatioScaleMode
 #include <flixel/system/scaleModes/RatioScaleMode.h>
 #endif
-#ifndef INCLUDED_flixel_util_FlxPool
-#include <flixel/util/FlxPool.h>
-#endif
-#ifndef INCLUDED_flixel_interfaces_IFlxPooled
-#include <flixel/interfaces/IFlxPooled.h>
-#endif
 #ifndef INCLUDED_flixel_system_FlxVersion
 #include <flixel/system/FlxVersion.h>
 #endif
@@ -1125,9 +1113,6 @@
 #ifndef INCLUDED_flixel_group_FlxTypedGroup
 #include <flixel/group/FlxTypedGroup.h>
 #endif
-#ifndef INCLUDED_flixel_interfaces_IFlxDestroyable
-#include <flixel/interfaces/IFlxDestroyable.h>
-#endif
 #ifndef INCLUDED__List_ListIterator
 #include <_List/ListIterator.h>
 #endif
@@ -1136,6 +1121,24 @@
 #endif
 #ifndef INCLUDED_Lambda
 #include <Lambda.h>
+#endif
+#ifndef INCLUDED_ExtendedFlxButton
+#include <ExtendedFlxButton.h>
+#endif
+#ifndef INCLUDED_flixel_ui_FlxTypedButton
+#include <flixel/ui/FlxTypedButton.h>
+#endif
+#ifndef INCLUDED_flixel_FlxSprite
+#include <flixel/FlxSprite.h>
+#endif
+#ifndef INCLUDED_flixel_util_FlxPool
+#include <flixel/util/FlxPool.h>
+#endif
+#ifndef INCLUDED_flixel_interfaces_IFlxPooled
+#include <flixel/interfaces/IFlxPooled.h>
+#endif
+#ifndef INCLUDED_flixel_interfaces_IFlxDestroyable
+#include <flixel/interfaces/IFlxDestroyable.h>
 #endif
 #ifndef INCLUDED_cpp_vm_Deque
 #include <cpp/vm/Deque.h>
@@ -1299,7 +1302,6 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::util::FlxBitmapDataPool_obj::__register();
 ::flixel::util::FlxAngle_obj::__register();
 ::flixel::ui::_FlxTypedButton::GraphicButton_obj::__register();
-::flixel::ui::FlxButton_obj::__register();
 ::flixel::ui::FlxBar_obj::__register();
 ::flixel::tweens::FlxEase_obj::__register();
 ::flixel::tile::FlxTilemap_obj::__register();
@@ -1353,9 +1355,7 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::animation::FlxAnimationController_obj::__register();
 ::flixel::_FlxSprite::GraphicDefault_obj::__register();
 ::openfl::_legacy::display::BitmapData_obj::__register();
-::flixel::FlxObject_obj::__register();
 ::flixel::FlxG_obj::__register();
-::flixel::util::FlxRect_obj::__register();
 ::flixel::util::FlxSave_obj::__register();
 ::flixel::tweens::FlxTween_obj::__register();
 ::flixel::util::FlxPath_obj::__register();
@@ -1364,6 +1364,9 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::util::FlxPoint_obj::__register();
 ::flixel::FlxCamera_obj::__register();
 ::Xml_obj::__register();
+::flixel::ui::FlxButton_obj::__register();
+::flixel::FlxObject_obj::__register();
+::flixel::util::FlxRect_obj::__register();
 ::flixel::FlxBasic_obj::__register();
 ::EReg_obj::__register();
 ::__ASSET__assets_fonts_arial_ttf_obj::__register();
@@ -1470,7 +1473,6 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::util::_FlxBitmapDataPool::FlxBitmapDataPoolNode_obj::__register();
 ::flixel::util::FlxArrayUtil_obj::__register();
 ::flixel::ui::_FlxTypedButton::FlxButtonEvent_obj::__register();
-::flixel::ui::FlxTypedButton_obj::__register();
 ::flixel::tweens::motion::QuadPath_obj::__register();
 ::flixel::tweens::motion::QuadMotion_obj::__register();
 ::flixel::tweens::motion::LinearPath_obj::__register();
@@ -1527,7 +1529,6 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::animation::FlxAnimation_obj::__register();
 ::flixel::animation::FlxBaseAnimation_obj::__register();
 ::flixel::FlxSubState_obj::__register();
-::flixel::FlxSprite_obj::__register();
 ::flixel::FlxGame_obj::__register();
 ::flixel::_system::frontEnds::WatchFrontEnd_obj::__register();
 ::flixel::_system::frontEnds::VCRFrontEnd_obj::__register();
@@ -1549,8 +1550,6 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::_system::frontEnds::BitmapLogFrontEnd_obj::__register();
 ::flixel::_system::frontEnds::BitmapFrontEnd_obj::__register();
 ::flixel::_system::scaleModes::RatioScaleMode_obj::__register();
-::flixel::util::FlxPool_obj::__register();
-::flixel::interfaces::IFlxPooled_obj::__register();
 ::flixel::_system::FlxVersion_obj::__register();
 ::cpp::vm::Thread_obj::__register();
 ::cpp::vm::Mutex_obj::__register();
@@ -1564,10 +1563,15 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::FlxState_obj::__register();
 ::flixel::group::FlxGroup_obj::__register();
 ::flixel::group::FlxTypedGroup_obj::__register();
-::flixel::interfaces::IFlxDestroyable_obj::__register();
 ::_List::ListIterator_obj::__register();
 ::List_obj::__register();
 ::Lambda_obj::__register();
+::ExtendedFlxButton_obj::__register();
+::flixel::ui::FlxTypedButton_obj::__register();
+::flixel::FlxSprite_obj::__register();
+::flixel::util::FlxPool_obj::__register();
+::flixel::interfaces::IFlxPooled_obj::__register();
+::flixel::interfaces::IFlxDestroyable_obj::__register();
 ::cpp::vm::Deque_obj::__register();
 ::openfl::_legacy::AssetLibrary_obj::__register();
 ::Date_obj::__register();
@@ -1635,6 +1639,9 @@ hx::RegisterResources( hx::GetResources() );
 ::__ASSET__assets_fonts_nokiafc22_ttf_obj::__boot();
 ::__ASSET__assets_fonts_arial_ttf_obj::__boot();
 ::flixel::FlxBasic_obj::__boot();
+::flixel::util::FlxRect_obj::__boot();
+::flixel::FlxObject_obj::__boot();
+::flixel::ui::FlxButton_obj::__boot();
 ::Xml_obj::__boot();
 ::flixel::FlxCamera_obj::__boot();
 ::flixel::util::FlxPoint_obj::__boot();
@@ -1642,9 +1649,7 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::util::FlxPath_obj::__boot();
 ::flixel::tweens::FlxTween_obj::__boot();
 ::flixel::util::FlxSave_obj::__boot();
-::flixel::util::FlxRect_obj::__boot();
 ::flixel::FlxG_obj::__boot();
-::flixel::FlxObject_obj::__boot();
 ::openfl::_legacy::display::BitmapData_obj::__boot();
 ::flixel::_FlxSprite::GraphicDefault_obj::__boot();
 ::flixel::animation::FlxAnimationController_obj::__boot();
@@ -1698,7 +1703,6 @@ hx::RegisterResources( hx::GetResources() );
 ::flixel::tile::FlxTilemap_obj::__boot();
 ::flixel::tweens::FlxEase_obj::__boot();
 ::flixel::ui::FlxBar_obj::__boot();
-::flixel::ui::FlxButton_obj::__boot();
 ::flixel::ui::_FlxTypedButton::GraphicButton_obj::__boot();
 ::flixel::util::FlxAngle_obj::__boot();
 ::flixel::util::FlxBitmapDataPool_obj::__boot();

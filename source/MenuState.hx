@@ -1,11 +1,9 @@
 package;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.text.FlxText;
-import flixel.ui.FlxButton;
-import flixel.util.FlxMath;
+import flixel.*;
+import flixel.text.*;
+import flixel.ui.*;
+import flixel.util.*;
 
 /**
  * A FlxState which can be used for the game's menu.
@@ -13,11 +11,11 @@ import flixel.util.FlxMath;
 class MenuState extends FlxState
 {
 
-    var playGameButtonObject:FlxButton = null;
-    var optionButtonObject:FlxButton = null;
-    var exitButtonObject:FlxButton = null;
-    var testButtonObject:FlxButton = null;
-    var mainMenuButtonObjectArray:Array<FlxButton> = new Array<FlxButton>();
+    var playGameButtonObject:ExtendedFlxButton = null;
+    var optionButtonObject:ExtendedFlxButton = null;
+    var exitButtonObject:ExtendedFlxButton = null;
+    var testButtonObject:ExtendedFlxButton = null;
+    var extendedFlxButtonObjectArray:Array<ExtendedFlxButton> = new Array<ExtendedFlxButton>();
 
     /**
      * Function that is called up when to state is created to set it up. 
@@ -26,46 +24,11 @@ class MenuState extends FlxState
     {
         super.create();
 
-        playGameButtonObject = new FlxButton(FlxG.width/2, FlxG.height/2, "Play", ChangeToMainStateVoid);
-        optionButtonObject = new FlxButton(FlxG.width/2, FlxG.height/2, "Option");
-        exitButtonObject = new FlxButton(FlxG.width/2, FlxG.height/2, "Exit");
-        testButtonObject = new FlxButton(FlxG.width/2, FlxG.height/2, "Test");
+        playGameButtonObject = new ExtendedFlxButton("Play", FlxG.width/2, FlxG.height/2, extendedFlxButtonObjectArray, this, ChangeToMainStateVoid);
+        optionButtonObject = new ExtendedFlxButton("Option", FlxG.width/2, FlxG.height/2, extendedFlxButtonObjectArray, this);
+        exitButtonObject = new ExtendedFlxButton("Exit", FlxG.width/2, FlxG.height/2, extendedFlxButtonObjectArray, this);
+        testButtonObject = new ExtendedFlxButton("Test", FlxG.width/2, FlxG.height/2, extendedFlxButtonObjectArray, this);
 
-        /*Adding all button in main menu into main menu array for easy access.*/
-        mainMenuButtonObjectArray.push(playGameButtonObject);
-        mainMenuButtonObjectArray.push(optionButtonObject);
-        mainMenuButtonObjectArray.push(exitButtonObject);
-        mainMenuButtonObjectArray.push(testButtonObject);
-
-        playGameButtonObject.x = Std.int(playGameButtonObject.x - (playGameButtonObject.width/2));
-        playGameButtonObject.y = MainMenuButtonObjectArrayAdjustYPosInt(
-            Std.int(playGameButtonObject.height),
-            Std.int(FlxG.height/2 - playGameButtonObject.height/2),
-            mainMenuButtonObjectArray.indexOf(playGameButtonObject)
-        );
-        optionButtonObject.x = Std.int(optionButtonObject.x - (optionButtonObject.width/2));
-        optionButtonObject.y = MainMenuButtonObjectArrayAdjustYPosInt(
-            Std.int(optionButtonObject.height),
-            Std.int(FlxG.height/2 - optionButtonObject.height/2),
-            mainMenuButtonObjectArray.indexOf(optionButtonObject)
-        );
-        exitButtonObject.x = Std.int(exitButtonObject.x - (exitButtonObject.width/2));
-        exitButtonObject.y = MainMenuButtonObjectArrayAdjustYPosInt(
-            Std.int(exitButtonObject.height),
-            Std.int(FlxG.height/2 - exitButtonObject.height/2),
-            mainMenuButtonObjectArray.indexOf(exitButtonObject)
-        );
-        testButtonObject.x = Std.int(testButtonObject.x - (testButtonObject.width/2));
-        testButtonObject.y = MainMenuButtonObjectArrayAdjustYPosInt(
-            Std.int(testButtonObject.height),
-            Std.int(FlxG.height/2 - testButtonObject.height/2),
-            mainMenuButtonObjectArray.indexOf(testButtonObject)
-        );
-
-        add(playGameButtonObject);
-        add(optionButtonObject);
-        add(exitButtonObject);
-        add(testButtonObject);
     }
     
     /**
@@ -87,32 +50,6 @@ class MenuState extends FlxState
 
     private function ChangeToMainStateVoid():Void{
         FlxG.switchState(new PlayState());
-    }
-    private function MainMenuButtonObjectArrayAdjustYPosInt(_buttonHeightInt:Int, _buttonStartYPos:Int, _elementIndexInt:Int):Int{
-
-        var yPosInt:Int = -1;
-        var isEvenBool:Bool = false;
-        var middleIndexInt:Int = 0;
-
-        if(mainMenuButtonObjectArray.length%2 == 0){ isEvenBool = true; }
-        if(isEvenBool == true){
-            middleIndexInt = Std.int(mainMenuButtonObjectArray.length/2);
-
-            if((_elementIndexInt + 1) > middleIndexInt){ yPosInt = Std.int(_buttonStartYPos + (_buttonHeightInt/2) + ((_elementIndexInt - 1)*_buttonHeightInt)); }
-            else if((_elementIndexInt + 1) <= middleIndexInt){ yPosInt = Std.int(_buttonStartYPos - (_buttonHeightInt/2) + (_elementIndexInt*_buttonHeightInt)); }
-
-        }
-        else if(isEvenBool == false){
-            middleIndexInt = Std.int(mainMenuButtonObjectArray.length/2) + 1;
-
-            if((_elementIndexInt + 1) > middleIndexInt){ yPosInt = Std.int(_buttonStartYPos + (_elementIndexInt - 1)*_buttonHeightInt); }
-            else if((_elementIndexInt + 1) < middleIndexInt){ yPosInt = Std.int(_buttonStartYPos - (_elementIndexInt + 1)*_buttonHeightInt); }
-            else if((_elementIndexInt + 1) == middleIndexInt){ yPosInt = Std.int(_buttonStartYPos); }
-
-        }
-
-        return yPosInt;
-
     }
 
 }

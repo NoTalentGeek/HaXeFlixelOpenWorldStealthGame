@@ -8,6 +8,7 @@
 #ifndef INCLUDED_flixel_FlxState
 #include <flixel/FlxState.h>
 #endif
+HX_DECLARE_CLASS0(ExtendedFlxButton)
 HX_DECLARE_CLASS0(MenuState)
 HX_DECLARE_CLASS1(flixel,FlxBasic)
 HX_DECLARE_CLASS1(flixel,FlxObject)
@@ -44,11 +45,11 @@ class HXCPP_CLASS_ATTRIBUTES  MenuState_obj : public ::flixel::FlxState_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_HCSTRING("MenuState","\xd2","\xbf","\xb6","\xc0"); }
 
-		::flixel::ui::FlxButton playGameButtonObject;
-		::flixel::ui::FlxButton optionButtonObject;
-		::flixel::ui::FlxButton exitButtonObject;
-		::flixel::ui::FlxButton testButtonObject;
-		Array< ::Dynamic > mainMenuButtonObjectArray;
+		::ExtendedFlxButton playGameButtonObject;
+		::ExtendedFlxButton optionButtonObject;
+		::ExtendedFlxButton exitButtonObject;
+		::ExtendedFlxButton testButtonObject;
+		Array< ::Dynamic > extendedFlxButtonObjectArray;
 		virtual Void create( );
 
 		virtual Void destroy( );
@@ -57,9 +58,6 @@ class HXCPP_CLASS_ATTRIBUTES  MenuState_obj : public ::flixel::FlxState_obj{
 
 		virtual Void ChangeToMainStateVoid( );
 		Dynamic ChangeToMainStateVoid_dyn();
-
-		virtual int MainMenuButtonObjectArrayAdjustYPosInt( int _buttonHeightInt,int _buttonStartYPos,int _elementIndexInt);
-		Dynamic MainMenuButtonObjectArrayAdjustYPosInt_dyn();
 
 };
 
